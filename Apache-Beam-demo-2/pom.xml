@@ -1,0 +1,84 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.demo.beam</groupId>
+  <artifactId>app</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <description>Demo2 project apache beam</description>
+  <packaging>jar</packaging>
+  
+  <name>Apache-Beam-demo-2</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <java.version>11</java.version>
+    <maven.compiler.release>11</maven.compiler.release>
+  </properties>
+  <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.8.1</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+  </build>
+  <dependencies>
+ 	<!-- https://mvnrepository.com/artifact/org.apache.beam/beam-sdks-java-core -->
+	<dependency>
+	    <groupId>org.apache.beam</groupId>
+	    <artifactId>beam-sdks-java-core</artifactId>
+	    <version>2.15.0</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.apache.beam/beam-runners-google-cloud-dataflow-java -->
+	<dependency>
+	    <groupId>org.apache.beam</groupId>
+	    <artifactId>beam-runners-google-cloud-dataflow-java</artifactId>
+	    <version>2.15.0</version>
+	    <scope>runtime</scope>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.apache.beam/beam-runners-direct-java -->
+	<dependency>
+	    <groupId>org.apache.beam</groupId>
+	    <artifactId>beam-runners-direct-java</artifactId>
+	    <version>2.15.0</version>
+	    <scope>runtime</scope>
+	</dependency>
+  	
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <!--  scope>test</scope> -->
+    </dependency>
+    
+    <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+	<dependency>
+	    <groupId>org.slf4j</groupId>
+	    <artifactId>slf4j-api</artifactId>
+	    <version>2.0.0-alpha1</version>
+	</dependency>
+  </dependencies>
+  <profiles>
+     <profile>
+         <id>direct-runner</id>
+         <activation>
+             <activeByDefault>true</activeByDefault>
+         </activation>
+         <dependencies>
+             <dependency>
+                 <groupId>org.apache.beam</groupId>
+                 <artifactId>beam-runners-direct-java</artifactId>
+                 <version>2.15.0</version>
+             </dependency>
+         </dependencies>
+     </profile>
+  </profiles>
+  
+</project>
